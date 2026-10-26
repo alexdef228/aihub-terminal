@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIHUB Терминал — окно для Claude Code на Windows</title>
+<meta name="description" content="Своё окно для Claude Code и Codex: вкладки проектов, переписка вместо консоли, лимиты на виду. Установка двойным щелчком.">
+<meta property="og:title" content="AIHUB Терминал">
+<meta property="og:description" content="Окно для Claude Code и Codex на Windows: проекты слева, переписка с карточками правок, лимиты сверху.">
+<meta property="og:image" content="https://alexdef228.github.io/aihub-terminal/shot-chat.png">
+<link rel="icon" href="favicon.png">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #070b08; color: #d6e8da; font: 16px/1.6 "Segoe UI", system-ui, sans-serif; }
+  a { color: #4ce07a; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  header { padding: 72px 0 40px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+  header img { width: 96px; height: 96px; image-rendering: auto; }
+  .kicker { font: 600 13px/1 Consolas, monospace; letter-spacing: .18em; color: #4ce07a; text-transform: uppercase; }
+  h1 { margin: 10px 0 8px; font-size: 44px; line-height: 1.1; color: #f2fff5; letter-spacing: -.01em; }
+  .lead { margin: 0; max-width: 640px; font-size: 19px; color: #a9c2ae; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 56px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 10px; background: #14823a; color: #fff; text-decoration: none; font-weight: 600; font-size: 17px; border: 1px solid #2fbf5f; }
+  .btn:hover { background: #18974a; }
+  .btn.ghost { background: transparent; color: #cfe6d5; border-color: #2b3d30; font-weight: 500; }
+  .btn.ghost:hover { border-color: #4ce07a; }
+  .meta { color: #7f9886; font-size: 14px; }
+  figure { margin: 0 0 64px; }
+  figure img { width: 100%; display: block; border-radius: 12px; border: 1px solid #1e3324; box-shadow: 0 30px 80px -30px #000, 0 0 0 1px #0d1a11; }
+  figcaption { margin-top: 12px; color: #7f9886; font-size: 14px; }
+  h2 { font-size: 28px; color: #f2fff5; margin: 0 0 20px; }
+  section { margin-bottom: 72px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: #0c140e; border: 1px solid #1a2b1f; border-radius: 12px; padding: 22px; }
+  .card h3 { margin: 0 0 8px; font-size: 17px; color: #e8f7ec; }
+  .card p { margin: 0; color: #9db4a3; font-size: 15px; }
+  ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  ol.steps li { counter-increment: s; position: relative; padding: 18px 20px 18px 64px; background: #0c140e; border: 1px solid #1a2b1f; border-radius: 12px; }
+  ol.steps li::before { content: counter(s); position: absolute; left: 20px; top: 16px; width: 30px; height: 30px; border-radius: 50%; background: #14823a; color: #fff; font-weight: 700; display: grid; place-items: center; }
+  ol.steps b { color: #e8f7ec; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  .two img { width: 100%; border-radius: 10px; border: 1px solid #1e3324; }
+  code { font-family: Consolas, monospace; background: #102016; padding: 1px 6px; border-radius: 4px; color: #bff5cf; font-size: .92em; }
+  .note { border-left: 3px solid #FCAF17; background: #17140a; padding: 14px 18px; border-radius: 0 10px 10px 0; color: #d9c79a; font-size: 15px; }
+  ul.req { margin: 0; padding-left: 20px; color: #b7cdbd; }
+  footer { border-top: 1px solid #16241a; padding: 28px 0 48px; color: #6c8572; font-size: 14px; }
+  @media (max-width: 820px) {
+    header { grid-template-columns: 1fr; padding-top: 40px; }
+    h1 { font-size: 34px; }
+    .grid, .two { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="icon.png" alt="">
+    <div>
+      <div class="kicker">AIHUB · Windows 10/11</div>
+      <h1>AIHUB Терминал</h1>
+      <p class="lead">Окно для Claude Code и Codex. Проекты слева, переписка вместо консоли, каждая правка видна диффом, лимиты всегда сверху.</p>
+    </div>
+  </header>
+
+  <div class="cta">
+    <a class="btn" href="https://github.com/alexdef228/aihub-terminal/releases/latest/download/AIHUB-Terminal.zip">⬇ Скачать для Windows</a>
+    <a class="btn ghost" href="https://github.com/alexdef228/aihub-terminal">Исходники на GitHub</a>
+    <span class="meta">zip · 3 МБ · бесплатно, MIT</span>
+  </div>
+
+  <figure>
+    <img src="shot-chat.png" alt="Окно AIHUB Терминала: переписка с Claude, карточки чтения файла, правки и команды, лимиты сверху">
+    <figcaption>Claude работает в окне: что прочитал, что поправил (красное убрано, зелёное добавлено), что запустил.</figcaption>
+  </figure>
+
+  <section>
+    <h2>Что умеет</h2>
+    <div class="grid">
+      <div class="card"><h3>Твои папки, а не чужие</h3><p>Показываешь, где лежат проекты, и каждая папка внутри становится проектом в списке. Папок может быть сколько угодно.</p></div>
+      <div class="card"><h3>Продолжить с того же места</h3><p>У проекта видно последнюю сессию: о чём просили и чем закончилось. «Продолжить» открывает именно её.</p></div>
+      <div class="card"><h3>Лимиты на виду</h3><p>Расход за 5 часов и за неделю, время до сброса, размер контекста каждой вкладки.</p></div>
+      <div class="card"><h3>Несколько вкладок сразу</h3><p>«Все сразу»: все агенты плитками на одном экране, писать можно в любую.</p></div>
+      <div class="card"><h3>Claude и Codex</h3><p>Оба в одном окне. Можно передать разговор от одного другому, и он продолжит.</p></div>
+      <div class="card"><h3>Всё мышкой</h3><p>Кнопки вместо горячих клавиш, разрешения кнопками, картинку можно просто перетащить в окно.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Установка</h2>
+    <ol class="steps">
+      <li><b>Скачай архив и распакуй его целиком.</b> Изнутри zip не запускай.</li>
+      <li><b>Двойной щелчок по «Установить.cmd».</b> Он сам поставит недостающее (Python, Node.js, Claude Code), сделает ярлык «AIHUB Терминал» и откроет окно.</li>
+      <li><b>«＋ Новая вкладка» → «📁 Папки с проектами».</b> Выбери папку, где у тебя проекты, и они появятся в списке.</li>
+    </ol>
+    <p class="note" style="margin-top:18px">Программа не подписана сертификатом, поэтому Windows может показать «Система Windows защитила ваш компьютер». Нажми «Подробнее» → «Выполнить в любом случае».</p>
+  </section>
+
+  <section class="two">
+    <div>
+      <h2>Первый запуск</h2>
+      <p>Окно начинает с пустого списка и само предлагает показать папки. Убрать папку из списка можно кнопкой, файлы на диске при этом остаются на месте.</p>
+      <h2 style="margin-top:32px">Что нужно</h2>
+      <ul class="req">
+        <li>Windows 10 или 11</li>
+        <li>подписка Claude Pro/Max или ключ API (войти — при первом запуске Claude)</li>
+        <li>Python и Claude Code: установщик поставит их сам</li>
+        <li>Codex — по желанию</li>
+      </ul>
+    </div>
+    <img src="shot-first-run.png" alt="Экран «Папки с проектами» при первом запуске">
+  </section>
+
+  <section>
+    <h2>Проекты</h2>
+    <figure style="margin-bottom:0">
+      <img src="shot-projects.png" alt="Экран «Проекты»: список слева, карточка проекта с последней сессией справа">
+      <figcaption>Карточка проекта: описание из README, последняя сессия и сколько токенов будет стоить её продолжение.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Обновить или удалить</h2>
+    <p>Чтобы обновить, скачай новый архив и снова запусти «Установить.cmd»: папки и настройки сохранятся.<br>
+    Чтобы удалить, запусти <code>%LOCALAPPDATA%\Programs\AIHUB Terminal\Удалить.cmd</code>. Проекты и сессии Claude останутся на месте.</p>
+  </section>
+</div>
+<footer><div class="wrap">AIHUB Терминал · сделано на Tauri · MIT · <a href="https://github.com/alexdef228/aihub-terminal/issues">сообщить о проблеме</a></div></footer>
+</body>
+</html>
